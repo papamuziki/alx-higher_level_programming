@@ -8,4 +8,14 @@ Python is ideal for:
 
 	1. rapid app development
 
-due to its elegant syntax & dynamic typing
+due to its elegant syntax & dynamic typing.
+
+Python also helps one split a program into modules that can be used by other programs. Sample modules include:
+
+	0. file I/O
+
+	1. System calls
+
+	2. Sockects
+
+	3. Sockets & interfaces for GUI e.g., Tk
