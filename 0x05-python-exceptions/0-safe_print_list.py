@@ -4,7 +4,7 @@ def safe_print_list(my_list=[], x=0):
     for m in range(x):
         try:
             print("{:d}".format(my_list[m]), end="")
-        except:
+        except IndexError:
             break
         else:
             count_of_elements += 1
