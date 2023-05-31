@@ -1,3 +1,8 @@
 #!/usr/bin/python3
+""" Square module """
+
 class Square:
+
+    """ Declare a class Square"""
+
     pass
