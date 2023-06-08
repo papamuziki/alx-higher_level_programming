@@ -60,3 +60,21 @@ class Rectangle:
     def area(self):
         """Return area of the rect"""
         return self.height * self.width
+
+    def perimeter(self):
+        """Returns the perimeter of the rectangle"""
+        if self.__width == 0 or self.__height == 0:
+            return 0
+        return (self.width * 2) + (self.height * 2)
+
+    def __str__(sefl):
+        """ """
+        string = ""
+        if self.__width != 0 and self.__height != 0:
+            string += "\n".join(str(self.print_symbol) * self.__width
+                    for r in range(self.__height))
+        return string
+
+    def __repr__(self):
+        """ """
+        return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
