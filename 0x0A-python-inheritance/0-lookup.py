@@ -1,8 +1,12 @@
 #!/usr/bin/python3
 """
-This module contains a function that prints attributes list
+A module that contains one function
 """
 
 
 def lookup(obj):
+    """
+    function: lookup(obj)
+    returns the list of available attributes and methods of an object
+    """
     return dir(obj)
