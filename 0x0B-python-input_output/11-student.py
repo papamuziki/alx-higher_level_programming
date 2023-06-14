@@ -36,4 +36,3 @@ class Student:
                 setattr(self, k, json[k])
             except FileNotFoundError:
                 pass
-
