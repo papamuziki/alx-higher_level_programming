@@ -1,5 +1,0 @@
-#!/usr/bin/python3
-write_file = __import__('1-write_file').write_file
-
-n_chars = write_file("1-file.txt", "I am glad\n")
-print(n_chars)
