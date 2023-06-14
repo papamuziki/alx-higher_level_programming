@@ -5,6 +5,7 @@ Module for function: load_from_json_file
 
 import json
 
+
 def load_from_json_file(filename):
     """
     function tht creates an Objects from a "JSON file"
