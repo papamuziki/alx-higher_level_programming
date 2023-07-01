@@ -1,9 +1,12 @@
 #!/usr/bin/python3
 """
-An empty class: BaseGeometry
+BaseGeometry class Documentation
 """
 
 
 class BaseGeometry:
-    """An empty class"""
+    """
+    creates empty BaseGeometry class
+    """
+
     pass
