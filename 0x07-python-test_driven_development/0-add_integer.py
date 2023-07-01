@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-A module of a function that adds two numbers
+This is a  module for a function that adds two numbers
 """
 
 def add_integer(a, b=98):
@@ -13,10 +13,12 @@ def add_integer(a, b=98):
     Raises:
         TypeError: if a or b are not integers and or floats
     """
-    if not isinstance(a, int) and not isinstance(a, float):
+    if not isinstance(a, (int, float)):
         raise TypeError("a must be an integer")
-    if not isinstance(b, int) and not isinstance(b, float):
+    if not isinstance(b, (int, float)):
         raise TypeError("b must be an integer")
-    a = int(a)
-    b = int(b)
+    if isinstance(a, float):
+        a = int(a)
+    if isinstance(b, float):
+        b = int(b)
     return a + b
