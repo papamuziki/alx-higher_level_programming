@@ -1,39 +1,90 @@
 #!/usr/bin/python3
 """
-class: Square
+Documentation: class square module
 """
+
 
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
     """
-    class Square that inherits class rectangle
+    class Square that inherits from class Rectangle
     """
+
     def __init__(self, size, x=0, y=0, id=None):
+        """initializes the Square instance
+
+        Args:
+            size (int): size of the square
+            x (int): x coordinate
+            y (int): y coordinate
+            id (int): id of the object
+        """
         super().__init__(size, size, x, y, id)
-
-    def __str__(self):
-        str_sq = "[Square]"
-        str_id = "({}) ".format(self.id)
-        str_xy = "{}/{} ".format(self.x, self.y)
-        str_wh = "{}/{}".format(self.width, self.height)
-
-        return str_sq + str_id + str_xy + str_wh
+        self.size = size
 
     @property
     def size(self):
+        """getter for size attribute
+
+        Return:
+            size of the square instance
+        """
         return self.width
 
     @size.setter
     def size(self, value):
+        """setter for size attribute
+
+        Args:
+            value (int): size of the square attribute
+        """
         self.width = value
         self.height = value
 
     def __str__(self):
-        str_rect = "[Square]"
-        str_id = "({})".format(self.id)
-        str_xy = "{}/{}".format(self.x, self.y)
-        str_size = "{}".format(self.size)
+        """overrides the __str__ builtin method
 
-        return str_rect + str_id + str_xy + str_size
+        Return:
+            informal string rep of the square
+        """
+        return "[Square] ({:d}) {:d}/{:d} - {:d}".format(self.id, self.x,
+                                                         self.y, self.width)
+
+    def update(self, *args, **kwargs):
+        """Updates the attributes of the square instance
+
+        Args:
+            args (list): list of arguments
+            kwargs (dict): dictionary with key/value pair arguments
+        """
+
+        if len(args):
+            for r, a in enumerate(args):
+                if r == 0:
+                    self.id = a
+                elif r == 1:
+                    self.size = a
+                elif r == 2:
+                    self.x = a
+                elif r == 3:
+                    self.y = a
+        else:
+            if "id" in kwargs:
+                self.id = kwargs["id"]
+            if "size" in kwargs:
+                self.size = kwargs["size"]
+            if "x" in kwargs:
+                self.x = kwargs["x"]
+            if "y" in kwargs:
+                self.y = kwargs["y"]
+
+    def to_dictionary(self):
+        """returns dictionary representation of a Square"""
+        new_dict = {}
+        new_dict["id"] = self.id
+        new_dict["size"] = self.size
+        new_dict["x"] = self.x
+        new_dict["y"] = self.y
+        return new_dict
