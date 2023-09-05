@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """Python script that fetches from a url using urllib"""
 
-import urllib.request as request
+from urllib import request
 
 
 if __name__ == "__main__":
-    """Module
+    """Module for the script that fetches url
     """
     url = 'https://alx-intranet.hbtn.io/status'
     with request.urlopen(url) as response:
