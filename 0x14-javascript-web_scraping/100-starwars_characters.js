@@ -7,7 +7,7 @@ const movieId = process.argv[2];
 const swapi = 'https://swapi-api.alx-tools.com/api/people/';
 
 function starWarsMovieChars(movieId, swapi){
-  req(swapi, function (err, body, response){
+  req.get(swapi, function (err, response, body){
     if (err) {
       console.log(err);
     }
@@ -15,7 +15,7 @@ function starWarsMovieChars(movieId, swapi){
     const people = jsonObject.results;
     for (let i in people) {
       for (j in people[i].films){
-        if (people[i].films[j].includes(movie)){
+        if (people[i].films[j].includes(movieId)){
         console.log(people[i].name);
         }
       }
