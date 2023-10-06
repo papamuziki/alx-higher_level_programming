@@ -1,22 +1,24 @@
 #!/usr/bin/node
 
-// prints the number of movies where the character
-// Wedge Antilles is present
+const request = require('request');
+const apiurl = process.argv[2];
 
-const re = require('request');
-const url = process.argv[2];
-
-re(url, function (err, body, response) {
+request.get(apiurl, function (err, response, body) {
   if (err) {
     console.log(err);
+  } else if (response.statusCode === 200) {
+    const films = JSON.parse(body).results;
+    let count = 0;
+    for (const i in films) {
+      const characters = films[i].characters;
+      for (const j in characters) {
+        if (characters[j].includes('18')) {
+          count++;
+        }
+      }
+    }
+    console.log(count);
   } else {
-    const res = JSON.parse(body).res;
-
-    const moviesWithWedgeChar = res.reduce((count, movie) => {
-      return movie.characters.find((characters) => character.endswith('/18/'))
-        ? count + 1
-        : count;
-    }, 0);
-    console.log(moviesWithWedgeChar);
+    console.log('An error occured. Status code: ' + response.statusCode);
   }
 });
