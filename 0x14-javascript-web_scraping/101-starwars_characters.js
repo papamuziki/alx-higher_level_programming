@@ -3,24 +3,24 @@
 // prints all characters of a Star Wars movie
 
 const req = require('request');
-const movieId = process.argv[1];
+const movieId = process.argv[2];
 const swapi = 'https://swapi-api.alx-tools.com/api/people/';
 
-function starWarsMovieChars(movieId, swapi){
-  req(swapi, function (err, body, response){
+function starWarsMovieChars (movieId, swapi) {
+  req.get(swapi, function (err, response, body) {
     if (err) {
       console.log(err);
     }
     const jsonObject = JSON.parse(body);
     const people = jsonObject.results;
-    for (let i in people) {
-      for (j in people[i].films){
-        if (people[i].films[j].includes(movie)){
-        console.log(people[i].name);
-	}
+    for (const i in people) {
+      for (const j in people[i].films) {
+        if (people[i].films[j].includes(movieId)) {
+          console.log(people[i].name);
+        }
       }
     }
-    if (jsonObject.next !== null){
+    if (jsonObject.next !== null) {
       starWarsMovieChars(movieId, jsonObject.next);
     }
   });
