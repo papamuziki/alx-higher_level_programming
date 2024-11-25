@@ -1,4 +1,10 @@
-#!/usr/bin/python3
+#! /usr/bin/python3
+
+# print 3 times a string stored in str
+# followed by its 9 characters
+
 str = "Holberton School"
-print(3 * str)
-print(str[:9])
+str1 = 3 * str
+str2 = str[0:9]
+str = str1 + str2
+print (str)
