@@ -1,3 +1,7 @@
-#!/usr/bin/python3
+#! /usr/bin/python3
+
+# prints, number
+# with a precision of 2 decimal places
+
 number = 3.14159
-print(f"Float: {number:.2f}")
+print ('{:.2f}'.format (number))
